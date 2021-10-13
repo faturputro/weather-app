@@ -1,0 +1,12 @@
+@import '../vendor/variables';
+
+.nav {
+  transition: all 0.4s linear;
+
+  &.nav--primary {
+    background-color: $primary;
+  }
+  &.nav--secondary {
+    background-color: transparent;
+  }
+}
