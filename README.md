@@ -35,3 +35,8 @@ VUE_APP_API_TOKEN=
 ```
 VUE_APP_BASE_URL=
 ```
+
+- Additional Features
+1. When searching for location, search result is persistent and will not reset the search
+2. Menus in Navigation, automatically searched for a corresponding location
+3. Upon dragging or clicking the map, the search and bottom snackbar will be hidden
