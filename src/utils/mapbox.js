@@ -7,24 +7,30 @@ export default class MapboxInstance {
       accessToken: process.env.VUE_APP_MAPBOX_TOKEN,
       container: 'mapContainer',
       style: 'mapbox://styles/mapbox/light-v10',
-      zoom: 5,
+      zoom: 15,
     });
     this.currentPosition = [long, lat];
-    this.marker = new mapboxgl.Marker().setLngLat(this.currentPosition).addTo(this.mapbox);
-    // this.getCurrentPosition();
+    this.long = long;
+    this.lat = lat;
+
+    const el = document.createElement('div');
+    el.className = 'marker';
+
+    this.marker = new mapboxgl.Marker(el).setLngLat(this.currentPosition).addTo(this.mapbox);
+    this.getCurrentPosition();
   }
 
   updateCurrentPosition(lat, long) {
     this.currentPosition = [long, lat];
   }
 
+  // createCustomMarker() {
+  //   const el = document.createElement('div');
+  //   el.className = 'marker';
+  //   return el;
+  // }
+
   getCurrentPosition() {
-    this.mapbox.addControl(new mapboxgl.GeolocateControl({
-      positionOptions: {
-        enableHighAccuracy: true,
-      },
-      trackUserLocation: false,
-      showUserHeading: false,
-    }));
+    this.mapbox.setCenter(new mapboxgl.LngLat(this.long, this.lat));
   }
 }

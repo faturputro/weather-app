@@ -1,0 +1,20 @@
+.search--bar {
+  position: absolute;
+  background-color: #FFFFFF;
+  top: 86px;
+  transition: all 0.3s ease-in-out;
+
+  &.is-hidden {
+    top: -86px;
+  }
+}
+
+.snackbar--bottom {
+  transition: all 0.3s ease-in-out;
+  transition-delay: 0.1s;
+  box-shadow: 0 -4px 20px rgba(59, 59, 59, 0.2);
+
+  &.is-hidden {
+    bottom: -300px;
+  }
+}

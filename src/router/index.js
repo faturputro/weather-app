@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
+import store from '../store';
 
 Vue.use(VueRouter);
 
@@ -18,11 +19,26 @@ const routes = [
     children: [
       {
         path: 'home',
-        name: 'home',
+        name: 'Home',
         component: () => import(/* webpackChunkName: "profile" */ '../views/dashboard/Home.vue'),
         meta: {
-          title: 'Profile',
-          hidden: false,
+          title: store.getters['geolocation/currentLocation'].city,
+        },
+      },
+      {
+        path: 'city/:cityName',
+        name: 'Details',
+        component: () => import(/* webpackChunkName: "profile" */ '../views/dashboard/Home.vue'),
+        meta: {
+          title: store.getters['geolocation/currentLocation'].city,
+        },
+      },
+      {
+        path: 'search',
+        name: 'Search',
+        component: () => import(/* webpackChunkName: "search" */ '../views/dashboard/SearchCity.vue'),
+        meta: {
+          title: 'Change Location',
         },
       },
     ],

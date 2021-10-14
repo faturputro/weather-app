@@ -1,7 +1,10 @@
 <template>
   <nav
-    class="nav flex justify-between items-center w-full pt-8 pb-6 px-10"
-    :class="color === 'primary' ? 'nav--primary' : 'nav--secondary'"
+    class="nav flex justify-between items-center w-full pt-8 pb-6 px-10 sticky top-0 z-50"
+    :class="[
+      color === 'primary' ? 'nav--primary' : 'nav--secondary',
+      showShadow && 'is-scrolled',
+    ]"
   >
     <button
       v-if="isShowHamburger"
@@ -46,7 +49,7 @@
       type="button"
     >
       <eva-icon
-        name="arrow-ios-back"
+        name="more-horizotnal-outline"
         animation="pulse"
         :fill="color === 'primary' ? '#FFFFFF' : '#363B64'"
       ></eva-icon>
@@ -57,18 +60,32 @@
 <script>
 export default {
   props: {
-    title: {
-      type: String,
-      default: '',
-    },
     color: {
       type: String,
       default: 'primary',
     },
   },
+  data() {
+    return {
+      container: null,
+      showShadow: false,
+    };
+  },
   computed: {
     isShowHamburger() {
       return this.$route.path === '/dashboard/home';
+    },
+    title() {
+      return this.$route.meta.title || this.$store.getters['geolocation/currentLocation'].city;
+    },
+  },
+  mounted() {
+    this.container = document.querySelector('.app-container');
+    this.container.addEventListener('scroll', this.scrollHandler);
+  },
+  methods: {
+    scrollHandler() {
+      this.showShadow = this.container.scrollTop > 10;
     },
   },
 };

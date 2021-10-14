@@ -1,12 +1,15 @@
 @import '../vendor/variables';
 
 .nav {
-  transition: all 0.4s linear;
+  transition: all 0.2s linear;
 
   &.nav--primary {
-    background-color: $primary;
+    background: $primary;
   }
   &.nav--secondary {
-    background-color: transparent;
+    background: #fff;
+  }
+  &.is-scrolled {
+    box-shadow: 0 4px 8px rgba(59, 59, 59, 0.2);
   }
 }

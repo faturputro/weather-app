@@ -4,7 +4,7 @@ import VueAxios from 'vue-axios';
 const axiosPlugin = {
   install(Vue) {
     const axiosInstance = axios.create({
-      baseURL: `${process.env.VUE_APP_BASE_URL}/data/2.5/weather`,
+      baseURL: process.env.VUE_APP_BASE_URL,
       timeout: 60 * 1000, // Timeout,
       headers: {
         Accept: 'application/json',
