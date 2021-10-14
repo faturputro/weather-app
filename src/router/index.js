@@ -19,17 +19,19 @@ const routes = [
     children: [
       {
         path: 'home',
-        name: 'Home',
+        name: 'DashboardHome',
         component: () => import(/* webpackChunkName: "profile" */ '../views/dashboard/Home.vue'),
         meta: {
+          appBar: 'secondary',
           title: store.getters['geolocation/currentLocation'].city,
         },
       },
       {
         path: 'city/:cityName',
         name: 'Details',
-        component: () => import(/* webpackChunkName: "profile" */ '../views/dashboard/Home.vue'),
+        component: () => import(/* webpackChunkName: "weatherdetails" */ '../views/dashboard/WeatherDetails.vue'),
         meta: {
+          appBar: 'primary',
           title: store.getters['geolocation/currentLocation'].city,
         },
       },
@@ -38,6 +40,7 @@ const routes = [
         name: 'Search',
         component: () => import(/* webpackChunkName: "search" */ '../views/dashboard/SearchCity.vue'),
         meta: {
+          appBar: 'secondary',
           title: 'Change Location',
         },
       },

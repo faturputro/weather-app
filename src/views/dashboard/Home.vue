@@ -3,7 +3,7 @@
     <div class="s-weather--container w-full overflow-scroll">
       <section class="s-weather flex flex-no-wrap mx-4 py-10 w-full">
         <router-link
-          :to="`/city/${currentLocation.city}`"
+          :to="`/dashboard/city/${currentLocation.city}`"
         >
           <weather-card
             :data="weatherDetails"
@@ -11,7 +11,7 @@
           ></weather-card>
         </router-link>
         <router-link
-          :to="`/city/${currentLocation.city}`"
+          :to="`/dashboard/city/${currentLocation.city}`"
         >
           <weather-card
             :data="weatherDetails"
@@ -19,7 +19,7 @@
           ></weather-card>
         </router-link>
         <router-link
-          :to="`/city/${currentLocation.city}`"
+          :to="`/dashboard/city/${currentLocation.city}`"
         >
           <weather-card
             :data="weatherDetails"

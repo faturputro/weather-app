@@ -1,0 +1,24 @@
+.w-switch {
+  position: relative;
+  background: rgba(255, 255, 255, 0.3);
+
+  .w-switch--control {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    transition: all .1s ease-in;
+
+    &.is-active {
+      left: 50%;
+    }
+  }
+
+  .w-switch--label {
+    &.is-active {
+      color: #3C6FD1;
+    }
+    &.is-inactive {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}

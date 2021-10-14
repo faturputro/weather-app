@@ -4,10 +4,7 @@
       class="app-container shadow-xl"
       :class="isShowMenu && 'active opacity-75'"
     >
-      <navbar
-        color="secondary"
-        @menuClicked="toggleMenu"
-      ></navbar>
+      <navbar @menuClicked="toggleMenu"></navbar>
       <router-view></router-view>
     </div>
     <div class="flex flex-col justify-between relative ml-6 h-full">
